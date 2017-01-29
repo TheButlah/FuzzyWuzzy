@@ -4,7 +4,7 @@ package me.thebutlah.fuzzywuzzy.rules;
 import java.util.function.DoubleSupplier;
 
 public class FuzzyComparison extends Antecedent {
-  private DoubleSupplier func;
+  private final DoubleSupplier func;
 
   public FuzzyComparison(DoubleSupplier func) {
     this.func = func;

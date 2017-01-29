@@ -8,25 +8,31 @@ import me.thebutlah.fuzzywuzzy.rules.FuzzyRule;
 public class FuzzyEngine {
 
   protected InputVariable[] inputs;
-  protected OutputVariable[] outputs;
+  protected OutputVariable output;
   protected FuzzyRule[] rules;
 
   public void addInputVariables(InputVariable... inputs) {
     this.inputs = inputs;
   }
 
-  public void addOutputVariables(OutputVariable... outputs) {
-    this.outputs = outputs;
+  public void addOutputVariable(OutputVariable output) {
+    this.output = output;
   }
 
   public void addRules(FuzzyRule... rules) {
     this.rules = rules;
   }
 
-  public void evaluate() {
+  public double evaluate() {
+    double result = 0;
+    double weightSum = 0;
     for (FuzzyRule r : rules) {
-      //r.getWeight();
+      double weight = r.getWeight();
+      double targetValue = r.getTargetValue();
+      weightSum += weight;
+      result += weight*targetValue;
     }
+    return result/weightSum;
   }
 
 }

@@ -2,8 +2,8 @@ package me.thebutlah.fuzzywuzzy.rules;
 
 class FuzzyAND extends Antecedent {
 
-  private Antecedent left;
-  private Antecedent right; //should be null for NOT operations
+  private final Antecedent left;
+  private final Antecedent right; //should be null for NOT operations
   //private Antecedent[] operands;
 
   FuzzyAND(Antecedent left, Antecedent right) {

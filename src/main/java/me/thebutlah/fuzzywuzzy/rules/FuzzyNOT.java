@@ -2,7 +2,7 @@ package me.thebutlah.fuzzywuzzy.rules;
 
 class FuzzyNOT extends Antecedent {
 
-  private Antecedent operand;
+  private final Antecedent operand;
 
   FuzzyNOT(Antecedent operand) {
     this.operand = operand;

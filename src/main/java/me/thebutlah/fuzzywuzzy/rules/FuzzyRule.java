@@ -8,18 +8,19 @@ import me.thebutlah.fuzzywuzzy.OutputVariable;
  */
 public class FuzzyRule {
 
-  private InputVariable[] inputs;
-  private OutputVariable[] outputs;
-  private Antecedent a;
-  private Consequent c;
+  private final Antecedent a;
+  private final Consequent c;
 
   FuzzyRule(Antecedent antecedent, Consequent consequent) {
     this.a = antecedent;
     this.c = consequent;
   }
 
-  public void evaluate() {
-    double weight = a.evaluate();
+  public double getWeight() {
+    return a.evaluate();
+  }
 
+  public double getTargetValue() {
+    return c.getValue();
   }
 }
