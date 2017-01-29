@@ -1,5 +1,7 @@
 package me.thebutlah.fuzzywuzzy;
 
+import me.thebutlah.fuzzywuzzy.rules.FuzzyRule;
+
 /**
  * Created by Ryan on 1/26/2017.
  */

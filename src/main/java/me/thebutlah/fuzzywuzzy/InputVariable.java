@@ -1,16 +1,18 @@
 package me.thebutlah.fuzzywuzzy;
 
+import me.thebutlah.fuzzywuzzy.rules.Antecedent;
+
 /**
  * Created by Ryan on 1/26/2017.
  */
 public class InputVariable {
 
-  public Antecedant is(LinguisticTerm term) {
-    return new FuzzyOp.Is(this, term);
+  public Antecedent is(LinguisticTerm... terms) {
+    return null; //TODO: Implement
   }
 
-  public Antecedant isNot(LinguisticTerm term) {
-    return (new FuzzyOp.IsNot(this, term));
+  public Antecedent isNot(LinguisticTerm... terms) {
+    return null; //TODO: Implement
   }
 }
 
