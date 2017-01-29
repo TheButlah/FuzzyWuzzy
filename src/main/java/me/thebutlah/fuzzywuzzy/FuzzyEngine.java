@@ -5,7 +5,7 @@ import me.thebutlah.fuzzywuzzy.rules.FuzzyRule;
 /**
  * Created by Ryan on 1/26/2017.
  */
-public abstract class FuzzyEngine {
+public class FuzzyEngine {
 
   protected InputVariable[] inputs;
   protected OutputVariable[] outputs;
@@ -23,6 +23,10 @@ public abstract class FuzzyEngine {
     this.rules = rules;
   }
 
-  public abstract void evaluate();
+  public void evaluate() {
+    for (FuzzyRule r : rules) {
+      //r.getWeight();
+    }
+  }
 
 }

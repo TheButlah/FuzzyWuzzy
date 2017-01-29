@@ -4,6 +4,7 @@ class FuzzyAND extends Antecedent {
 
   private Antecedent left;
   private Antecedent right; //should be null for NOT operations
+  //private Antecedent[] operands;
 
   FuzzyAND(Antecedent left, Antecedent right) {
     this.left = left;
@@ -11,6 +12,7 @@ class FuzzyAND extends Antecedent {
   }
 
   public double evaluate() {
+
     return Math.min(left.evaluate(),right.evaluate());
   }
 }

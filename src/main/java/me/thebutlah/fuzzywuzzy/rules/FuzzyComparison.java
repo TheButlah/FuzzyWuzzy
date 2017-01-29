@@ -3,10 +3,10 @@ package me.thebutlah.fuzzywuzzy.rules;
 
 import java.util.function.DoubleSupplier;
 
-public class Comparison extends Antecedent {
+public class FuzzyComparison extends Antecedent {
   private DoubleSupplier func;
 
-  public Comparison(DoubleSupplier func) {
+  public FuzzyComparison(DoubleSupplier func) {
     this.func = func;
   }
 

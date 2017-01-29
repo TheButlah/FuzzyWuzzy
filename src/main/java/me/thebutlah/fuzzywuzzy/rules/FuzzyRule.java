@@ -10,15 +10,16 @@ public class FuzzyRule {
 
   private InputVariable[] inputs;
   private OutputVariable[] outputs;
+  private Antecedent a;
+  private Consequent c;
 
-  public FuzzyRule() {
-
+  FuzzyRule(Antecedent antecedent, Consequent consequent) {
+    this.a = antecedent;
+    this.c = consequent;
   }
 
-  public class LogicExpression {
-
-
+  public void evaluate() {
+    double weight = a.evaluate();
 
   }
-
 }

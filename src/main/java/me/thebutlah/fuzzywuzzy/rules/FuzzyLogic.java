@@ -3,7 +3,7 @@ package me.thebutlah.fuzzywuzzy.rules;
 /**
  * Created by Ryan on 1/27/2017.
  */
-public class FuzzyOp {
+public final class FuzzyLogic {
 
   public static Antecedent and(Antecedent... operands) {
     Antecedent result = operands[0];
@@ -24,5 +24,8 @@ public class FuzzyOp {
   public static Antecedent not(Antecedent operand) {
     return new FuzzyNOT(operand);
   }
+
+  //Prevent instantiating this class
+  private FuzzyLogic() {};
 
 }
