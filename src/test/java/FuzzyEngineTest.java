@@ -1,5 +1,4 @@
 import me.thebutlah.fuzzywuzzy.*;
-import me.thebutlah.fuzzywuzzy.rules.FuzzyRule;
 import org.junit.Test;
 
 
