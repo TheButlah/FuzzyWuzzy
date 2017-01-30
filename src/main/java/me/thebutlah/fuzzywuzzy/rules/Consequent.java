@@ -14,7 +14,7 @@ public class Consequent {
   }
 
   public double getValue() {
-    return term.value;
+    return term.getValue();
   }
 
 

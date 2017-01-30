@@ -3,8 +3,6 @@ package me.thebutlah.fuzzywuzzy;
 import me.thebutlah.fuzzywuzzy.rules.Antecedent;
 import me.thebutlah.fuzzywuzzy.rules.FuzzyComparison;
 
-import java.util.function.DoubleSupplier;
-
 /**
  * Created by Ryan on 1/26/2017.
  */
@@ -17,14 +15,18 @@ public class InputVariable {
     this.name = name;
   }
 
-  public Antecedent is(LinguisticTerm term) {
+  public Antecedent is(InputTerm term) {
     final double result = term.getMembership(value);
     return new FuzzyComparison(() -> {return result;});
   }
 
-  public Antecedent isNot(LinguisticTerm term) {
+  public Antecedent isNot(InputTerm term) {
     final double result = 1-term.getMembership(value);
     return new FuzzyComparison(() -> {return result;});
+  }
+
+  public String getName() {
+    return name;
   }
 }
 

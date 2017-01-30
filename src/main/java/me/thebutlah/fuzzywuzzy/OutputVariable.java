@@ -5,10 +5,10 @@ import me.thebutlah.fuzzywuzzy.rules.Consequent;
 /**
  * Created by Ryan on 1/26/2017.
  */
-public class OutputVariable<T extends Enum> {
+public class OutputVariable {
 
   private final String name;
-  private double value;
+  //private double value;
 
   public OutputVariable(String name) {
     this.name = name;
@@ -18,11 +18,7 @@ public class OutputVariable<T extends Enum> {
     return new Consequent(term);
   }
 
-  public double getValue() {
-    return value;
-  }
-
-  void setValue(double value) {
-    this.value = value;
+  public String getName() {
+    return name;
   }
 }

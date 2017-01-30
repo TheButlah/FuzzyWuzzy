@@ -5,11 +5,19 @@ package me.thebutlah.fuzzywuzzy;
  */
 public class OutputTerm {
 
-  public final String name;
-  public final double value;
+  private final String name;
+  private final double value;
 
   public OutputTerm(String name, double value) {
     this.name = name;
     this.value = value;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public double getValue() {
+    return value;
   }
 }

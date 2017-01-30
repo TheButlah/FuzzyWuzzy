@@ -5,6 +5,9 @@ package me.thebutlah.fuzzywuzzy.rules;
  */
 public abstract class Antecedent {
 
+  public FuzzyRule then(Consequent c) {
+    return new FuzzyRule(this,c);
+  }
   public abstract double evaluate();
 
 }
