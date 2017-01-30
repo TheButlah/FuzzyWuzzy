@@ -1,9 +1,7 @@
 import me.thebutlah.fuzzywuzzy.*;
-import me.thebutlah.fuzzywuzzy.rules.FuzzyLogic;
 import me.thebutlah.fuzzywuzzy.rules.FuzzyRule;
 import org.junit.Test;
 
-import java.util.DoubleSummaryStatistics;
 
 import static me.thebutlah.fuzzywuzzy.rules.FuzzyLogic.*;
 
