@@ -23,4 +23,9 @@ public class FuzzyRule {
   public double getTargetValue() {
     return c.getValue();
   }
+
+  @Override
+  public String toString() {
+    return new StringBuilder("if ").append(a).append(" then ").append(c).toString();
+  }
 }

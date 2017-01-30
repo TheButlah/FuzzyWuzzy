@@ -36,9 +36,10 @@ public class FuzzyEngineTest {
     );
     // END ENGINE INIT
 
-    service.setValue(4);
-    food.setValue(10);
+    service.setValue(2);
+    food.setValue(5);
     double result = engine.evaluate();
     System.out.println(result);
+    System.out.println(engine.describeRules());
   }
 }
