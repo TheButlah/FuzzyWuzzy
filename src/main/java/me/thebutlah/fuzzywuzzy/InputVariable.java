@@ -9,24 +9,26 @@ import me.thebutlah.fuzzywuzzy.rules.FuzzyComparison;
 public class InputVariable {
 
   private final String name;
-  private Double value;
+  private double value;
 
   public InputVariable(String name) {
     this.name = name;
   }
 
   public Antecedent is(InputTerm term) {
-    final double result = term.getMembership(value);
-    return new FuzzyComparison(() -> {return result;});
+    return new FuzzyComparison(() -> {return term.getMembership(value);});
   }
 
   public Antecedent isNot(InputTerm term) {
-    final double result = 1-term.getMembership(value);
-    return new FuzzyComparison(() -> {return result;});
+    return new FuzzyComparison(() -> {return 1-term.getMembership(value);});
   }
 
   public String getName() {
     return name;
+  }
+
+  public void setValue(double value) {
+    this.value = value;
   }
 }
 
