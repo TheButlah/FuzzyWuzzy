@@ -3,13 +3,18 @@ package me.thebutlah.fuzzywuzzy;
 import me.thebutlah.fuzzywuzzy.rules.FuzzyRule;
 
 /**
- * Created by Ryan on 1/26/2017.
+ * Performs all the fuzzy logic necessary to get a crisp output from a crisp input.
+ * @author Ryan Butler
  */
 public class FuzzyEngine {
 
-  protected FuzzyRule[] rules;
+  private FuzzyRule[] rules;
 
-  public void addRules(FuzzyRule... rules) {
+  /**
+   * Constructs the FuzzyEngine.
+   * @param rules
+   */
+  public FuzzyEngine(FuzzyRule... rules) {
     this.rules = rules;
   }
 

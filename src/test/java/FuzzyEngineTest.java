@@ -31,8 +31,7 @@ public class FuzzyEngineTest {
     OutputTerm normal = new OutputTerm("normal",15);
     OutputTerm large = new OutputTerm("large",20);
 
-    FuzzyEngine engine = new FuzzyEngine();
-    engine.addRules(
+    FuzzyEngine engine = new FuzzyEngine(
       service.is(poor).then(tip.set(small)),
       or(service.is(excellent),food.is(excellent)).then(tip.set(large))
 
