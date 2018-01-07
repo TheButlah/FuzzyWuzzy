@@ -4,21 +4,21 @@ package me.thebutlah.fuzzywuzzy.rules;
 import java.util.function.DoubleSupplier;
 
 public class FuzzyComparison extends Antecedent {
-  private final DoubleSupplier func;
-  private final String str;
+    private final DoubleSupplier func;
+    private final String str;
 
-  public FuzzyComparison(String str, DoubleSupplier func) {
-    this.str = str;
-    this.func = func;
-  }
+    public FuzzyComparison(String str, DoubleSupplier func) {
+        this.str = str;
+        this.func = func;
+    }
 
-  @Override
-  public double evaluate() {
-    return func.getAsDouble();
-  }
+    @Override
+    public double evaluate() {
+        return func.getAsDouble();
+    }
 
-  @Override
-  public String toString() {
-    return str;
-  }
+    @Override
+    public String toString() {
+        return str;
+    }
 }

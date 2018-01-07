@@ -5,27 +5,36 @@ package me.thebutlah.fuzzywuzzy.rules;
  */
 public final class FuzzyLogic {
 
-  public static Antecedent and(Antecedent... operands) {
-    Antecedent result = operands[0];
-    for (int i=1; i<operands.length; i++) {
-      result = new FuzzyAND(result, operands[i]);
+    /**
+     * Performs fuzzy AND operation on
+     *
+     * @param operands
+     * @return
+     */
+    public static Antecedent and(Antecedent... operands) {
+        Antecedent result = operands[0];
+        for (int i = 1; i < operands.length; i++) {
+            result = new FuzzyAND(result, operands[i]);
+        }
+        return result;
     }
-    return result;
-  }
 
-  public static Antecedent or(Antecedent... operands) {
-    Antecedent result = operands[0];
-    for (int i=1; i<operands.length; i++) {
-      result = new FuzzyOR(result, operands[i]);
+    public static Antecedent or(Antecedent... operands) {
+        Antecedent result = operands[0];
+        for (int i = 1; i < operands.length; i++) {
+            result = new FuzzyOR(result, operands[i]);
+        }
+        return result;
     }
-    return result;
-  }
 
-  public static Antecedent not(Antecedent operand) {
-    return new FuzzyNOT(operand);
-  }
+    public static Antecedent not(Antecedent operand) {
+        return new FuzzyNOT(operand);
+    }
 
-  //Prevent instantiating this class
-  private FuzzyLogic() {};
+    //Prevent instantiating this class
+    private FuzzyLogic() {
+    }
+
+    ;
 
 }

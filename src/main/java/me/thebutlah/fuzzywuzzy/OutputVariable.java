@@ -7,18 +7,22 @@ import me.thebutlah.fuzzywuzzy.rules.Consequent;
  */
 public class OutputVariable {
 
-  private final String name;
-  //private double value;
+    private final String name;
+    private double value = Double.NaN;
 
-  public OutputVariable(String name) {
-    this.name = name;
-  }
+    public OutputVariable(String name) {
+        this.name = name;
+    }
 
-  public Consequent set(OutputTerm term) {
-    return new Consequent(term);
-  }
+    public double getValue() {
+        return this.value;
+    }
 
-  public String getName() {
-    return name;
-  }
+    public Consequent set(OutputTerm term) {
+        return new Consequent(term);
+    }
+
+    public String getName() {
+        return name;
+    }
 }

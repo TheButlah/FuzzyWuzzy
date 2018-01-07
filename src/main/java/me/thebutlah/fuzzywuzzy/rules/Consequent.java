@@ -7,20 +7,20 @@ import me.thebutlah.fuzzywuzzy.OutputTerm;
  */
 public class Consequent {
 
-  private OutputTerm term;
+    private OutputTerm term;
 
-  public Consequent(OutputTerm term) {
-    this.term = term;
-  }
+    public Consequent(OutputTerm term) {
+        this.term = term;
+    }
 
-  public double getValue() {
-    return term.getValue();
-  }
+    public double getValue() {
+        return term.getValue();
+    }
 
-  @Override
-  public String toString() {
-    return term.getName();
-  }
+    @Override
+    public String toString() {
+        return term.getName();
+    }
 
 
 }

@@ -11,35 +11,39 @@ import static org.junit.Assert.*;
  */
 public class FuzzyEngineTest {
 
-  @Test
-  public void test() {
+    @Test
+    public void test() {
 
-    //BEGIN INITIALIZING ENGINE
-    InputVariable service = new InputVariable("service");
-    InputVariable food = new InputVariable("food");
+        //BEGIN INITIALIZING ENGINE
+        //Each InputVariable will be used to pass info into the FuzzyEngine
+        InputVariable service = new InputVariable("service");
+        InputVariable food = new InputVariable("food");
 
-    InputTerm poor = new InputTerm("poor", 0,1,3,4,1);
-    InputTerm average = new InputTerm("average", 3,4,6,7,1);
-    InputTerm excellent = new InputTerm("excellent", 6,7, Double.MAX_VALUE,Double.MAX_VALUE,1);
+        InputTerm poor = new InputTerm("poor", 0, 1, 3, 4);
+        InputTerm average = new InputTerm("average", 3, 4, 6, 7);
+        InputTerm excellent = new InputTerm("excellent", 6, 7, Double.MAX_VALUE, Double.MAX_VALUE);
 
-    OutputVariable tip = new OutputVariable("tip");
+        //Each OutputVariable will be used to get the results from the FuzzyEngine
+        OutputVariable tip = new OutputVariable("tip");
 
-    OutputTerm small = new OutputTerm("small",10);
-    OutputTerm normal = new OutputTerm("normal",15);
-    OutputTerm large = new OutputTerm("large",20);
+        OutputTerm small = new OutputTerm("small", 10);
+        OutputTerm normal = new OutputTerm("normal", 15);
+        OutputTerm large = new OutputTerm("large", 20);
 
-    FuzzyEngine engine = new FuzzyEngine(
-      service.is(poor).then(tip.set(small)),
-      or(service.is(excellent),food.is(excellent)).then(tip.set(large))
+        FuzzyEngine engine = new FuzzyEngine(
+            //FuzzyRule #1: IF service is poor THEN tip is small
+            service.is(poor).then(tip.set(small)),
 
+            //FuzzyRule #2: IF service is excellent OR food is excellent THEN tip is large
+            or(service.is(excellent), food.is(excellent)).then(tip.set(large))
+        );
+        // END ENGINE INIT
 
-    );
-    // END ENGINE INIT
-
-    service.setValue(2);
-    food.setValue(5);
-    double result = engine.evaluate();
-    System.out.println(result);
-    System.out.println(engine.describeRules());
-  }
+        service.setValue(2);
+        food.setValue(5);
+        engine.defuzzify();
+        double result = tip.getValue();
+        System.out.println(result);
+        System.out.println(engine.describeRules());
+    }
 }
