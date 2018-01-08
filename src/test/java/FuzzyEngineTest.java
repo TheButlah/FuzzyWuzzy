@@ -9,7 +9,9 @@ import static me.thebutlah.fuzzywuzzy.FuzzyLogic.*;
 import static org.junit.Assert.assertTrue;
 
 /**
- * Created by Ryan on 1/29/2017.
+ * Test class for FuzzyWuzzy.
+ *
+ * @author Ryan Butler
  */
 public class FuzzyEngineTest {
 
