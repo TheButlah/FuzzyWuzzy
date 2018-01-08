@@ -1,22 +1,32 @@
 package me.thebutlah.fuzzywuzzy;
 
+/**
+ * This class describes Antecedents with the form "a OR b".
+ *
+ * @author Ryan Butler
+ */
 class FuzzyOR extends Antecedent {
 
     private final Antecedent left;
-    private final Antecedent right; //should be null for NOT operations
+    private final Antecedent right;
 
+    /**
+     * Constructs the Antecedent that represents the fuzzy OR operation.
+     * @param left The left operand.
+     * @param right The right operand.
+     */
     FuzzyOR(Antecedent left, Antecedent right) {
         this.left = left;
         this.right = right;
     }
 
     @Override
-    public double evaluate() {
+    double evaluate() {
         return Math.max(left.evaluate(), right.evaluate());
     }
 
     @Override
     public String toString() {
-        return new StringBuilder("(").append(left).append(") || (").append(right).append(")").toString();
+        return "(" + left + ") || (" + right + ")";
     }
 }

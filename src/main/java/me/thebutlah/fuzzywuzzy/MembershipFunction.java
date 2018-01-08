@@ -4,10 +4,12 @@ package me.thebutlah.fuzzywuzzy;
  * This class represents a membership function for a fuzzy set. Membership functions range from [0,1] and represent the
  * degree to which an input belongs to the fuzzy set. Hence, each linguistic term (specifically the `InputTerm` class)
  * has an accompanying membership function.
+ *
+ * @author Ryan Butler
  */
-public class MembershipFunction {
+class MembershipFunction {
 
-    private final double start, upperLeft, upperRight, end;
+    private final double start, upperLeft, upperRight, end; //Each are positions on input axis not output axis.
 
     private final double risingSlope, fallingSlope;
 
@@ -19,7 +21,7 @@ public class MembershipFunction {
      * @param upperRight The right "corner" of the trapezoid. Values are 1 from this point to `upperLeft`.
      * @param end        The rightmost point of the trapezoid. Values right of this are zero.
      */
-    public MembershipFunction(double start, double upperLeft, double upperRight, double end) {
+    MembershipFunction(double start, double upperLeft, double upperRight, double end) {
         this.start = start;
         this.upperLeft = upperLeft;
         this.upperRight = upperRight;
@@ -37,10 +39,10 @@ public class MembershipFunction {
      * @param input The value to determine membership of.
      * @return A number in [0,1] that describes the membership of `input`.
      */
-    public double evaluate(double input) {
+    double evaluate(double input) {
         if (input <= start) {
             //out of bounds
-            return 0;
+            return 0.0;
         } else if (input < upperLeft) {
             //rising slope
             return (input - start) * risingSlope;
@@ -52,7 +54,7 @@ public class MembershipFunction {
             return (end - input) * fallingSlope;
         } else {
             //out of bounds
-            return 0;
+            return 0.0;
         }
     }
 }

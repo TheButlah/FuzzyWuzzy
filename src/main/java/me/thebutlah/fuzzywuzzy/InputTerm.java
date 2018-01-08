@@ -1,7 +1,11 @@
 package me.thebutlah.fuzzywuzzy;
 
 /**
- * Created by Ryan on 1/26/2017.
+ * Represents a linguistic term (which is a fuzzy set) used to describe any of the InputVariables.
+ *
+ * Example: IF weather == cold THEN heat = high. "cold" is the InputTerm.
+ *
+ * @author Ryan Butler
  */
 public class InputTerm {
 
@@ -9,8 +13,7 @@ public class InputTerm {
     private final MembershipFunction func;
 
     /**
-     * Constructs an InputTerm object that represents a linguistic term (which is a fuzzy set) with a trapezoidal
-     * membership function.
+     * Constructs an InputTerm object with a trapezoidal membership function.
      *
      * @param start      The leftmost point of the trapezoid. Values left of this are zero.
      * @param upperLeft  The left "corner" of the trapezoid. Values are 1 from this point to `upperRight`.
@@ -23,8 +26,7 @@ public class InputTerm {
     }
 
     /**
-     * Constructs an InputTerm object that represents a linguistic term (which is a fuzzy set) with a given membership
-     * function.
+     * Constructs an InputTerm object with a given membership function.
      */
     public InputTerm(String name, MembershipFunction func) {
         this.name = name;
@@ -41,7 +43,15 @@ public class InputTerm {
         return func.evaluate(input);
     }
 
+    /**
+     * Gets the name of the InputTerm.
+     */
     public String getName() {
         return name;
+    }
+
+    @Override
+    public String toString() {
+        return "InputTerm{" + name + "," + func + "}";
     }
 }

@@ -4,6 +4,8 @@ package me.thebutlah.fuzzywuzzy.util;
  * An immutable 2-tuple.
  * @param <F> The type of `first`
  * @param <S> The type of `second`
+ *
+ * @author Ryan Butler
  */
 public class Pair<F, S> {
     private final F first; //first member of pair

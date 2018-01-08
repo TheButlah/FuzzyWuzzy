@@ -3,7 +3,9 @@ package me.thebutlah.fuzzywuzzy;
 import me.thebutlah.fuzzywuzzy.util.Pair;
 
 /**
- * Represents a variable for the output of the FuzzyEngine
+ * Represents a variable for the output of the FuzzyEngine.
+ *
+ * @author Ryan Butler
  */
 public class OutputVariable {
 
@@ -23,7 +25,12 @@ public class OutputVariable {
 
     /**
      * Gets the value of the OutputVariable. Should only be called after `engine.defuzzify()`.
-     * @return A double representing the value of the OutputVariable.
+     *
+     * NOTE: Sometimes this value may be NaN. This indicates that either one of the InputVariables was NaN or there was
+     * insufficient logic in the FuzzyRules to cover this particular arrangement of InputVariables. Sometimes this is
+     * useful - you can treat a NaN result as the "default" case.
+     *
+     * @return A double representing the value of the OutputVariable. Could be NaN.
      */
     public double getValue() {
         //This should really throw an exception but for speed we will place the burden of correctness on the user.
@@ -33,7 +40,7 @@ public class OutputVariable {
 
     /**
      * Gets the value of the OutputVariable. This method is for internal use only and doesn't ensure the value is valid.
-     * @return A double representing the value of the OutputVariable.
+     * @return A double representing the value of the OutputVariable. Could be NaN.
      */
     double getValueUnsafe() {
         return this.value;
@@ -60,5 +67,10 @@ public class OutputVariable {
      */
     public String getName() {
         return name;
+    }
+
+    @Override
+    public String toString() {
+        return "OutputVariable{" + name + ": " + value + "}";
     }
 }

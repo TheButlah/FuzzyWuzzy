@@ -1,6 +1,11 @@
 package me.thebutlah.fuzzywuzzy.util;
 
-public class Utils {
+/**
+ * A Utility class filled with helper functions.
+ *
+ * @author Ryan Butler
+ */
+public final class Utils {
 
     /**
      * Returns whether `a` and `b` are near each other.
@@ -21,4 +26,7 @@ public class Utils {
     public static boolean isNear(double a, double b) {
         return isNear(a, b, 0.0001);
     }
+
+    //Prevent instantiating this class
+    private Utils() {}
 }
