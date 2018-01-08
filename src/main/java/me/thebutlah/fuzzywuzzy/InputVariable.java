@@ -1,15 +1,14 @@
 package me.thebutlah.fuzzywuzzy;
 
-import me.thebutlah.fuzzywuzzy.rules.Antecedent;
-import me.thebutlah.fuzzywuzzy.rules.FuzzyComparison;
-
 public class InputVariable {
 
     private final String name;
+    private final FuzzyEngine engine;
     private double value = Double.NaN;
 
-    public InputVariable(String name) {
+    InputVariable(String name, FuzzyEngine engine) {
         this.name = name;
+        this.engine = engine;
     }
 
     public Antecedent is(InputTerm term) {
@@ -28,6 +27,7 @@ public class InputVariable {
 
     public void setValue(double value) {
         this.value = value;
+        engine.invalidate();
     }
 }
 

@@ -1,7 +1,4 @@
-package me.thebutlah.fuzzywuzzy.rules;
-
-import me.thebutlah.fuzzywuzzy.InputVariable;
-import me.thebutlah.fuzzywuzzy.OutputVariable;
+package me.thebutlah.fuzzywuzzy;
 
 /**
  * Created by Ryan on 1/26/2017.
@@ -37,29 +34,16 @@ public class FuzzyRule {
         this.w = weight;
     }
 
-    /**
-     * Evaluates the strength of the antecedent and returns that strength multiplied by the weight of the FuzzyRule.
-     * NOTE: `weight` is not guaranteed to be normalized so that the weights of all the FuzzyRules sum to 1. The code
-     * that uses the rule should be in charge of normalizing the value to ensure that the weights all sum to 1.
-     */
-    public double computeRuleStrength() {
-        return a.evaluate() * this.w;
-    }
-
-    /**
-     * Gets the weight of this FuzzyRule.
-     * @return The weight.
-     */
-    public double getWeight() {
+    double getWeight() {
         return w;
     }
 
-    /**
-     * Gets the value of the consequent.
-     * @return The value of the consequent.
-     */
-    public double getConsequentValue() {
-        return c.getValue();
+    Antecedent getAntecedent() {
+        return a;
+    }
+
+    Consequent getConsequent() {
+        return c;
     }
 
     @Override

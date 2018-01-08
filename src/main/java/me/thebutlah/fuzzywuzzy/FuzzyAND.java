@@ -1,4 +1,4 @@
-package me.thebutlah.fuzzywuzzy.rules;
+package me.thebutlah.fuzzywuzzy;
 
 class FuzzyAND extends Antecedent {
 
